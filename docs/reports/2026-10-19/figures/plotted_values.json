@@ -1,0 +1,545 @@
+{
+  "sources": [
+    "docs/results/ego_pretrain_20261019/metrics.json",
+    "docs/results/lastlayer/gates_ll.json"
+  ],
+  "action_interface": {
+    "arms": {
+      "A4": {
+        "R@10": 0.2347,
+        "orig_t2m_sim": 0.1776,
+        "R@3_samecat": 0.1733,
+        "median_rank": 28.0,
+        "mpjpe_m": 0.6511,
+        "static": 0.04,
+        "finetune_best_step": 200
+      },
+      "A36": {
+        "R@10": 0.2907,
+        "orig_t2m_sim": 0.1942,
+        "R@3_samecat": 0.2373,
+        "median_rank": 24.6667,
+        "mpjpe_m": 0.6592,
+        "static": 0.008,
+        "finetune_best_step": 300,
+        "pretrain_best_val_ce": 4.5263
+      },
+      "S36": {
+        "R@10": 0.2427,
+        "orig_t2m_sim": 0.1706,
+        "R@3_samecat": 0.176,
+        "median_rank": 31.0,
+        "mpjpe_m": 0.654,
+        "static": 0.0107,
+        "finetune_best_step": 300,
+        "pretrain_best_val_ce": 4.5209
+      },
+      "V36": {
+        "R@10": 0.2533,
+        "orig_t2m_sim": 0.1793,
+        "R@3_samecat": 0.2133,
+        "median_rank": 32.6667,
+        "mpjpe_m": 0.637,
+        "static": 0.016,
+        "finetune_best_step": 400
+      }
+    },
+    "comparisons": {
+      "A36 - A4": {
+        "A": 0.2907,
+        "B": 0.2347,
+        "diff": 0.056,
+        "ci95": [
+          0.0154,
+          0.1009
+        ],
+        "p": 0.0239
+      },
+      "S36 - A36": {
+        "A": 0.2427,
+        "B": 0.2907,
+        "diff": -0.048,
+        "ci95": [
+          -0.1159,
+          0.02
+        ],
+        "p": 0.1881
+      },
+      "V36 - S36": {
+        "A": 0.2533,
+        "B": 0.2427,
+        "diff": 0.0107,
+        "ci95": [
+          -0.042,
+          0.0634
+        ],
+        "p": 0.6695
+      }
+    }
+  },
+  "probe_accuracy": {
+    "base": {
+      "egonormia_verified": {
+        "n": 200,
+        "acc": 0.53,
+        "chance": 0.25
+      },
+      "egotom_actions": {
+        "n": 354,
+        "acc": 0.2825,
+        "chance": 0.25
+      },
+      "egotom_belief": {
+        "n": 332,
+        "acc": 0.2199,
+        "chance": 0.25
+      },
+      "egotom_goal": {
+        "n": 349,
+        "acc": 0.4269,
+        "chance": 0.3333
+      }
+    },
+    "sft": {
+      "egonormia_verified": {
+        "n": 200,
+        "acc": 0.6,
+        "chance": 0.25
+      },
+      "egotom_actions": {
+        "n": 354,
+        "acc": 0.2599,
+        "chance": 0.25
+      },
+      "egotom_belief": {
+        "n": 332,
+        "acc": 0.2078,
+        "chance": 0.25
+      },
+      "egotom_goal": {
+        "n": 349,
+        "acc": 0.4355,
+        "chance": 0.3333
+      }
+    },
+    "pt_c": {
+      "egonormia_verified": {
+        "n": 200,
+        "acc": 0.67,
+        "chance": 0.25
+      },
+      "egotom_actions": {
+        "n": 354,
+        "acc": 0.3051,
+        "chance": 0.25
+      },
+      "egotom_belief": {
+        "n": 332,
+        "acc": 0.253,
+        "chance": 0.25
+      },
+      "egotom_goal": {
+        "n": 349,
+        "acc": 0.4183,
+        "chance": 0.3333
+      }
+    },
+    "sft_ptc": {
+      "egonormia_verified": {
+        "n": 200,
+        "acc": 0.615,
+        "chance": 0.25
+      },
+      "egotom_actions": {
+        "n": 354,
+        "acc": 0.2429,
+        "chance": 0.25
+      },
+      "egotom_belief": {
+        "n": 332,
+        "acc": 0.2349,
+        "chance": 0.25
+      },
+      "egotom_goal": {
+        "n": 349,
+        "acc": 0.4327,
+        "chance": 0.3333
+      }
+    }
+  },
+  "probe_comparisons": {
+    "pt_c_vs_base": {
+      "egonormia_verified": {
+        "n": 200,
+        "n_clusters": 183,
+        "A": 0.67,
+        "B": 0.53,
+        "diff": 0.14,
+        "ci95": [
+          0.07842180774748925,
+          0.20408163265306123
+        ],
+        "increased": 36,
+        "decreased": 8,
+        "unchanged": 156,
+        "correct_A": 134,
+        "correct_B": 106,
+        "both_correct": 98,
+        "both_wrong": 58,
+        "prediction_changed": 55,
+        "mean_gold_margin_A": 0.23836217254400252,
+        "mean_gold_margin_B": 0.11781606912612914
+      },
+      "egotom_actions": {
+        "n": 354,
+        "n_clusters": 307,
+        "A": 0.3050847457627119,
+        "B": 0.2824858757062147,
+        "diff": 0.022598870056497175,
+        "ci95": [
+          -0.011300235271522543,
+          0.05747540494882243
+        ],
+        "increased": 23,
+        "decreased": 15,
+        "unchanged": 316,
+        "correct_A": 108,
+        "correct_B": 100,
+        "both_correct": 85,
+        "both_wrong": 231,
+        "prediction_changed": 74,
+        "mean_gold_margin_A": -0.2825583263305621,
+        "mean_gold_margin_B": -0.40095077227737946
+      },
+      "egotom_belief": {
+        "n": 332,
+        "n_clusters": 303,
+        "A": 0.25301204819277107,
+        "B": 0.21987951807228914,
+        "diff": 0.03313253012048193,
+        "ci95": [
+          -0.005952825159914712,
+          0.07121295886775765
+        ],
+        "increased": 25,
+        "decreased": 14,
+        "unchanged": 293,
+        "correct_A": 84,
+        "correct_B": 73,
+        "both_correct": 59,
+        "both_wrong": 234,
+        "prediction_changed": 76,
+        "mean_gold_margin_A": -0.2957943543253175,
+        "mean_gold_margin_B": -0.4891344809747604
+      },
+      "egotom_goal": {
+        "n": 349,
+        "n_clusters": 301,
+        "A": 0.4183381088825215,
+        "B": 0.4269340974212034,
+        "diff": -0.008595988538681949,
+        "ci95": [
+          -0.0469208211143695,
+          0.03188405797101449
+        ],
+        "increased": 24,
+        "decreased": 27,
+        "unchanged": 298,
+        "correct_A": 146,
+        "correct_B": 149,
+        "both_correct": 122,
+        "both_wrong": 176,
+        "prediction_changed": 71,
+        "mean_gold_margin_A": -0.21623945577779952,
+        "mean_gold_margin_B": -0.24730273918982562
+      },
+      "egotom_pooled": {
+        "n": 1035,
+        "n_clusters": 621,
+        "A": 0.32657004830917874,
+        "B": 0.3111111111111111,
+        "diff": 0.015458937198067632,
+        "ci95": [
+          -0.0067457098108147685,
+          0.03755052156081905
+        ],
+        "increased": 72,
+        "decreased": 56,
+        "unchanged": 907,
+        "correct_A": 338,
+        "correct_B": 322,
+        "both_correct": 266,
+        "both_wrong": 641,
+        "prediction_changed": 221,
+        "mean_gold_margin_A": -0.2644414910371753,
+        "mean_gold_margin_B": -0.37742790052856223
+      }
+    },
+    "sft_ptc_vs_pt_c": {
+      "egonormia_verified": {
+        "n": 200,
+        "n_clusters": 183,
+        "A": 0.615,
+        "B": 0.67,
+        "diff": -0.055,
+        "ci95": [
+          -0.1076923076923077,
+          0.0
+        ],
+        "increased": 9,
+        "decreased": 20,
+        "unchanged": 171,
+        "correct_A": 123,
+        "correct_B": 134,
+        "both_correct": 114,
+        "both_wrong": 57,
+        "prediction_changed": 35,
+        "mean_gold_margin_A": 0.20644037872552873,
+        "mean_gold_margin_B": 0.23836217254400252
+      },
+      "egotom_actions": {
+        "n": 354,
+        "n_clusters": 307,
+        "A": 0.24293785310734464,
+        "B": 0.3050847457627119,
+        "diff": -0.062146892655367235,
+        "ci95": [
+          -0.09348890657801294,
+          -0.03142633292633292
+        ],
+        "increased": 6,
+        "decreased": 28,
+        "unchanged": 320,
+        "correct_A": 86,
+        "correct_B": 108,
+        "both_correct": 80,
+        "both_wrong": 240,
+        "prediction_changed": 69,
+        "mean_gold_margin_A": -0.45230480557107655,
+        "mean_gold_margin_B": -0.2825583263305621
+      },
+      "egotom_belief": {
+        "n": 332,
+        "n_clusters": 303,
+        "A": 0.23493975903614459,
+        "B": 0.25301204819277107,
+        "diff": -0.018072289156626505,
+        "ci95": [
+          -0.05047623741925792,
+          0.015061378444290762
+        ],
+        "increased": 12,
+        "decreased": 18,
+        "unchanged": 302,
+        "correct_A": 78,
+        "correct_B": 84,
+        "both_correct": 66,
+        "both_wrong": 236,
+        "prediction_changed": 60,
+        "mean_gold_margin_A": -0.3666651985013341,
+        "mean_gold_margin_B": -0.2957943543253175
+      },
+      "egotom_goal": {
+        "n": 349,
+        "n_clusters": 301,
+        "A": 0.4326647564469914,
+        "B": 0.4183381088825215,
+        "diff": 0.014326647564469915,
+        "ci95": [
+          -0.018238472088368297,
+          0.04748935887204045
+        ],
+        "increased": 20,
+        "decreased": 15,
+        "unchanged": 314,
+        "correct_A": 151,
+        "correct_B": 146,
+        "both_correct": 131,
+        "both_wrong": 183,
+        "prediction_changed": 49,
+        "mean_gold_margin_A": -0.19022379222093816,
+        "mean_gold_margin_B": -0.21623945577779952
+      },
+      "egotom_pooled": {
+        "n": 1035,
+        "n_clusters": 621,
+        "A": 0.30434782608695654,
+        "B": 0.32657004830917874,
+        "diff": -0.022222222222222223,
+        "ci95": [
+          -0.0417071045841091,
+          -0.003777059169383719
+        ],
+        "increased": 38,
+        "decreased": 61,
+        "unchanged": 936,
+        "correct_A": 315,
+        "correct_B": 338,
+        "both_correct": 277,
+        "both_wrong": 659,
+        "prediction_changed": 178,
+        "mean_gold_margin_A": -0.33646072517846515,
+        "mean_gold_margin_B": -0.2644414910371753
+      }
+    },
+    "sft_ptc_vs_sft": {
+      "egonormia_verified": {
+        "n": 200,
+        "n_clusters": 183,
+        "A": 0.615,
+        "B": 0.6,
+        "diff": 0.015,
+        "ci95": [
+          -0.035902061855670096,
+          0.06667464114832539
+        ],
+        "increased": 16,
+        "decreased": 13,
+        "unchanged": 171,
+        "correct_A": 123,
+        "correct_B": 120,
+        "both_correct": 107,
+        "both_wrong": 64,
+        "prediction_changed": 33,
+        "mean_gold_margin_A": 0.20644037872552873,
+        "mean_gold_margin_B": 0.14801303863525392
+      },
+      "egotom_actions": {
+        "n": 354,
+        "n_clusters": 307,
+        "A": 0.24293785310734464,
+        "B": 0.2598870056497175,
+        "diff": -0.01694915254237288,
+        "ci95": [
+          -0.043227665706051875,
+          0.008571428571428572
+        ],
+        "increased": 8,
+        "decreased": 14,
+        "unchanged": 332,
+        "correct_A": 86,
+        "correct_B": 92,
+        "both_correct": 78,
+        "both_wrong": 254,
+        "prediction_changed": 41,
+        "mean_gold_margin_A": -0.45230480557107655,
+        "mean_gold_margin_B": -0.45192514469394574
+      },
+      "egotom_belief": {
+        "n": 332,
+        "n_clusters": 303,
+        "A": 0.23493975903614459,
+        "B": 0.20783132530120482,
+        "diff": 0.02710843373493976,
+        "ci95": [
+          -0.002976190476190476,
+          0.05865102639296188
+        ],
+        "increased": 17,
+        "decreased": 8,
+        "unchanged": 307,
+        "correct_A": 78,
+        "correct_B": 69,
+        "both_correct": 61,
+        "both_wrong": 246,
+        "prediction_changed": 61,
+        "mean_gold_margin_A": -0.3666651985013341,
+        "mean_gold_margin_B": -0.45123942142509554
+      },
+      "egotom_goal": {
+        "n": 349,
+        "n_clusters": 301,
+        "A": 0.4326647564469914,
+        "B": 0.4355300859598854,
+        "diff": -0.0028653295128939827,
+        "ci95": [
+          -0.040697674418604654,
+          0.033999176775380766
+        ],
+        "increased": 20,
+        "decreased": 21,
+        "unchanged": 308,
+        "correct_A": 151,
+        "correct_B": 152,
+        "both_correct": 131,
+        "both_wrong": 177,
+        "prediction_changed": 63,
+        "mean_gold_margin_A": -0.19022379222093816,
+        "mean_gold_margin_B": -0.2013541219227635
+      },
+      "egotom_pooled": {
+        "n": 1035,
+        "n_clusters": 621,
+        "A": 0.30434782608695654,
+        "B": 0.30241545893719807,
+        "diff": 0.001932367149758454,
+        "ci95": [
+          -0.015784838877324583,
+          0.020114942528735632
+        ],
+        "increased": 45,
+        "decreased": 43,
+        "unchanged": 947,
+        "correct_A": 315,
+        "correct_B": 313,
+        "both_correct": 270,
+        "both_wrong": 677,
+        "prediction_changed": 165,
+        "mean_gold_margin_A": -0.33646072517846515,
+        "mean_gold_margin_B": -0.3672131185370367
+      }
+    }
+  },
+  "sft_validation": {
+    "sft_student": [
+      {
+        "epoch": 0,
+        "val_nll_per_tok": 1.4379786771563077,
+        "s": 55
+      },
+      {
+        "epoch": 1,
+        "val_nll_per_tok": 0.6998121182906522,
+        "s": 2358
+      },
+      {
+        "epoch": 2,
+        "val_nll_per_tok": 0.790189054646287,
+        "s": 4540
+      }
+    ],
+    "sft_ptc": [
+      {
+        "epoch": 0,
+        "val_nll_per_tok": 1.021642826051916,
+        "s": 156
+      },
+      {
+        "epoch": 1,
+        "val_nll_per_tok": 0.7022544258407696,
+        "s": 5075
+      },
+      {
+        "epoch": 2,
+        "val_nll_per_tok": 0.7898414876064141,
+        "s": 9932
+      }
+    ]
+  },
+  "motion_R10": {
+    "n": 125,
+    "n_clusters": 34,
+    "A": 0.304,
+    "B": 0.2906666666666667,
+    "diff": 0.013333333333333332,
+    "ci95": [
+      -0.051099569530226464,
+      0.08268871295838143
+    ],
+    "increased": 19,
+    "decreased": 19,
+    "unchanged": 87,
+    "hits_A": 114,
+    "hits_B": 109
+  }
+}

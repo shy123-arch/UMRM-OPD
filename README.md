@@ -30,6 +30,7 @@ flowchart TD
 
 | 目的 | 入口 |
 |---|---|
+| 准备路线与实验汇报 | [详细报告](docs/reports/2026-10-19/BRIEFING.md)、[24页主讲+8页备份提纲](docs/reports/2026-10-19/SLIDE_OUTLINE.md)，附可复现PNG/SVG图 |
 | 按日期了解路线如何变化 | [实验时间线](docs/EXPERIMENTS.md) |
 | 理解架构、假设与实现边界 | [最新路线记录](docs/TAKEOVER_20261019.md) |
 | 学习每个模块的数据流 | [教程](docs/TUTORIAL.md)，其中历史判断以最新路线记录为准 |
