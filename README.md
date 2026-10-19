@@ -39,6 +39,7 @@ flowchart TD
 | 配置环境、运行与复现 | [运行指南](docs/RUNNING.md)、[环境](envs/README.md) |
 | 了解数据访问和存储 | [资产说明](docs/ASSETS.md)、[数据卡](docs/DATA.md) |
 | 维护、提交和追溯 | [CONTRIBUTING.md](CONTRIBUTING.md)、[代码来源说明](NOTICE.md) |
+| 为ego视频补录反应动捕做精确切片 | [ego数据反应标注台](tools/ego_reaction_desk/README.md)：独立小批候选、原反应预填、兼容交接表导出 |
 
 ## 目录
 

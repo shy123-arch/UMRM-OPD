@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ego数据反应标注台</title><link rel="icon" href="data:,"><link rel="stylesheet" href="assets/style.css"></head>
+<body>
+<header><div><span class="eyebrow">UMRM · EGO REACTION</span><h1>ego数据反应标注台</h1></div>
+<div class="header-right"><span id="summary">正在载入</span><label>标注者 <input id="actor" maxlength="24" placeholder="姓名缩写，如 CK" autocomplete="off"></label><button id="export" class="light">导出已切片数据</button></div></header>
+<main>
+<aside><div class="sidebar-title">首批候选 <span id="count" class="badge">0</span></div>
+<div class="filters"><select id="dataset"><option value="">所有来源</option><option value="egonormia">EgoNormia</option><option value="goalstep">GoalStep</option></select>
+<select id="status"><option value="">所有进度</option><option value="pending">待切片</option><option value="draft">草稿</option><option value="ready">已切片</option><option value="rejected">暂不采用</option><option value="failed">切片失败</option></select></div>
+<input id="search" type="search" placeholder="搜索反应描述"><nav id="list"></nav>
+<p class="side-note">已有反应描述，重点核准切片。保存后仍为独立候选，后续审核与动捕状态另行记录。</p></aside>
+<section class="workspace"><div class="topline"><div><span id="source-badge" class="badge">—</span><span id="item-index"></span><h2 id="heading">加载候选中…</h2></div><div class="nav-buttons"><button id="prev">← 上一条</button><button id="next">下一条 →</button></div></div>
+<div class="columns"><div class="video-panel">
+<div class="video-shell"><video id="video" controls preload="metadata" playsinline></video><span id="video-mode">来源视频 · 定位窗口</span></div>
+<div class="playbar"><button id="play">播放 / 暂停</button><button data-step="-1">−1秒</button><button data-step="-.1">−0.1秒</button><button data-frame="-1">前一帧</button><button data-frame="1">后一帧</button><button data-step=".1">+0.1秒</button><button data-step="1">+1秒</button><select id="speed"><option value=".25">0.25×</option><option value=".5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option></select></div>
+<div class="clock"><span>当前源视频时间 <strong id="current">—</strong></span><span>原标注时间点 <strong id="anchor">—</strong></span></div>
+<section class="card timing"><div class="section-title"><span class="step">1</span><h3>精确定位反应前片段</h3><span id="duration" class="badge">— 秒</span></div>
+<div class="time-inputs"><label>片段起点（源视频秒）<input id="start" type="number" step="0.001"><button id="set-start">以当前画面设为起点 [</button></label><label>截断点（源视频秒）<input id="end" type="number" step="0.001"><button id="set-end">以当前画面设为截断点 ]</button></label></div>
+<div class="action-row"><button id="goto-start">跳到起点</button><button id="goto-end">跳到截断点</button><button id="loop" class="primary-soft">预览所选范围</button><button id="boundary">查看截断前后原始帧</button></div>
+<p class="hint">选取1–15秒充分前情；截断点应早于目标反应及其可辨认准备动作。原标注时间点仅作定位参考。</p>
+<div id="frames" class="frames" hidden><figure><img id="frame-before" alt="截断前原始帧"><figcaption id="frame-before-label"></figcaption></figure><figure><img id="frame-after" alt="截断点之后原始帧"><figcaption id="frame-after-label"></figcaption></figure><p>右图仅辅助查边界，不进入导出片段；支持反应的依据应来自左侧截断之前。</p></div>
+</section>
+<div class="result-bar" id="result"></div>
+</div><div class="annotation-panel">
+<section class="card"><div class="section-title"><span class="step">2</span><h3>数据已有的反应描述</h3></div>
+<label>中文反应 <textarea id="reaction-cn" rows="3"></textarea></label><label>英文反应 <textarea id="reaction" rows="3"></textarea></label>
+<p class="hint">已预填源反应及中文译文；无需重写。若画面不支持，可暂不采用。原文始终保留。</p>
+<details><summary>源标注与理由</summary><p class="label">原始反应</p><p id="original"></p><p class="label">原始理由 / 任务上下文</p><p id="reason"></p><p id="origin-note" class="hint"></p></details>
+</section>
+<section class="card"><div class="section-title"><span class="step">3</span><h3>确认并保存</h3></div>
+<label class="check"><input id="boundary-ok" type="checkbox">截断前，目标反应及定向准备动作尚未开始</label>
+<label class="check"><input id="support-ok" type="checkbox">反应描述的对象、情境和动作与前情相符</label>
+<details><summary>补充状态、分类或备注（按需）</summary><label>必要的 State <textarea id="state" rows="2" placeholder="仅补充视频外必要的目标/约束，不写目标动作"></textarea></label>
+<label>场景分类 <select id="category"><option value="">待分类</option><option value="A">A 户外出行</option><option value="B">B 服务工作</option><option value="C">C 社交人际</option><option value="D">D 运动竞技</option><option value="E">E 突发失误</option><option value="F">F 日常生活</option></select></label></details>
+<label>备注 <textarea id="note" rows="2" placeholder="边界疑问、描述问题，或暂不采用的原因"></textarea></label>
+<div class="save-row"><button id="save" class="primary">确认并生成切片</button><button id="draft">存草稿</button><button id="reject" class="danger">暂不采用</button></div><p id="save-state" role="status">切片与文本保存在独立标注库。</p>
+</section>
+<p class="keys">空格 播放 · J/L ±0.1秒 · [ / ] 设置边界 · S 保存<br>半自动切片候选，不自动并入正式636。</p>
+</div></div>
+</section></main><div id="toast" role="alert" hidden></div>
+<script src="assets/app.js"></script></body></html>
