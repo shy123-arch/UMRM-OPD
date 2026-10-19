@@ -1,0 +1,23 @@
+{
+  "method": "extractive rule (a2c_mr_chain.py, R-chain)",
+  "audit": {
+    "human": {
+      "n": 908,
+      "n_nonempty": 864,
+      "reaction_overlap_full": 0.405,
+      "reaction_overlap_extract": 0.169,
+      "decision_marker_rate_extract": 0.007,
+      "mean_words_full": 34.5,
+      "mean_words_extract": 17.8
+    },
+    "generated": {
+      "n": 869,
+      "n_nonempty": 868,
+      "reaction_overlap_full": 0.631,
+      "reaction_overlap_extract": 0.346,
+      "decision_marker_rate_extract": 0.0,
+      "mean_words_full": 35.8,
+      "mean_words_extract": 14.9
+    }
+  }
+}
