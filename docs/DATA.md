@@ -6,6 +6,22 @@
 
 这个归档与下文用于 v1197aug 训练的包各有用途；v1197aug 包采用独立的来源隔离实验划分，并不包含 v860 的 182 条封存 TEST。
 
+获准访问私有数据集后，可用 ModelScope 的快照下载接口取得完整文件树（`MsDataset.load` 适合表格型数据，不会自动整理本包的 MP4 与 NPZ 资产）：
+
+```python
+from pathlib import Path
+from modelscope import dataset_snapshot_download
+
+root = Path(dataset_snapshot_download(
+    "ma3re111/UMRM",
+    allow_patterns=["releases/2026-10-20/v1197/**"],
+))
+data = root / "releases/2026-10-20/v1197"
+# 条目索引：data / "items.jsonl"；视频：data / "clips"；动捕：data / "pico"
+```
+
+已用同一命令的 `allow_patterns=["releases/2026-10-20/v1197/README.md"]` 小文件子集验证目录解析；下载完整包约 2.3 GiB。
+
 **用途与许可**：仅限非商业学术研究，申请制获取，不得二次分发。视频片段来自 YouTube、Bilibili 等平台的第一人称视频，按平台条款和合理使用原则采集。承载这些数据的仓库必须保持私有；本GitHub仓库仅发布代码与汇总结果。
 
 ## 组成
